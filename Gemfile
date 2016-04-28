@@ -37,7 +37,7 @@ gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem ‘mechanize’
-gem ‘nokogiri’
-gem ’open-uri’
-gem ‘net/http’
+gem 'mechanize'
+gem 'nokogiri'
+gem 'net/http'
+gem 'open-uri'
