@@ -39,3 +39,4 @@ gem 'puma'
 # gem 'debugger', group: [:development, :test]
 gem 'mechanize'
 gem 'nokogiri'
+gem 'sinatra'
