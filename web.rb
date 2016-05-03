@@ -1,8 +1,8 @@
 require 'sinatra'
 
+while 1 do 
 get '/' do
-while(1)
-  p ”Hello, world"
+  p "Hello, world"
   sleep(1)
 end
 end
