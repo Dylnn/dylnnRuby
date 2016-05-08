@@ -18,8 +18,8 @@ page.links.each do |link|
     if link.text.length > 5
      if link.href.include?"s?wd=paperuri"
         p link.text
-         newlink = "http://xueshu.baidu.com"+link.href
-        newpage = agent.get(newlink)#打开详细页面
+         newlink = "http://xueshu.baidu.com"+link.href  #发现是子页面
+        newpage = agent.get(newlink)#打开子详细页面
         newpage.links.each do |newlink|
             if newlink.href.include?".pdf"
                 if newlink.href.include?"cameo"
