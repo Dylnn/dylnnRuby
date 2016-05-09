@@ -9,7 +9,8 @@ agent = Mechanize.new
 
 uri = 'http://xueshu.baidu.com/s?wd=%E5%B2%A9%E5%9C%9F%E5%B7%A5%E7%A8%8B&sort=sc_cited'
 uri2 = 'http://xueshu.baidu.com/s?wd=软件测试&sort=sc_cited'
-
+countPdfs = 0
+while(1)
 page = agent.get(uri)
 p "starting"
 page.links.each do |link|
@@ -29,8 +30,17 @@ page.links.each do |link|
 						p m = 1
 					end
 					p nlink.href #输出可以下载的链接
+					countPdfs+=1
 				end
 			end			
 		end
 	end
 end
+page.links.each do|link|
+			if link.text == '下一页>'
+				p 'true'
+        page = agent.get(link.href)
+			end
+  end
+  break if countPdfs == 20
+  end

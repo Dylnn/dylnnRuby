@@ -115,7 +115,9 @@ page = @agent.get(uri)%>
   <input type="text" name='username' placeholder="请输入关键字" autofocus>
   <input class="btn primary" type='submit' value='开始搜索！'>
 </form>
-				<%page.links.each do |link|%>
+				<%countPdf = 0
+				while(1)
+				page.links.each do |link|%>
 				<% if link.text.length > 5 %>
 				<% if link.href.include?"s?wd=paperuri" %>
 				<%
@@ -135,6 +137,7 @@ page = @agent.get(uri)%>
 				<% if n==0 %>
 					<%= link.text %></br>
 					<% n=1
+					countPdf +=1
 					end %>
 				</h4> 
 				<%newpage.search('.abstract').each do |link_abstract| %>
@@ -150,6 +153,7 @@ page = @agent.get(uri)%>
 				<%
 				newpage.links.each do |nlink|
 					if nlink.href.include?".pdf"
+					
 				%>
 					</br><%= nlink.href%>
 				</strong> </br>请戳右侧链接进行下载！ <a href= "<%= nlink.href%>" class="alert-link">下载链接</a>
@@ -164,6 +168,17 @@ page = @agent.get(uri)%>
 						<% end %>	
 						<%end%>
 					<%end%>
+					<% #下面判断下一页
+					page.links.each do|link|
+			if link.text == '下一页>'
+				p 'true'
+				page = @agent.get(link.href)
+				break
+				end
+			end
+			break if countPdf >= 15
+			end
+					%>
 				<p>
 					<a class="btn btn-primary btn-large" href="#">Learn more</a>
 				</p>

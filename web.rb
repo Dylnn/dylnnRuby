@@ -12,7 +12,7 @@ end
 
 helpers do
   def username
-    session[:identity] ? session[:identity] : 'Hello stranger'
+    session[:identity] ? session[:identity] : '岩土工程'
   end
 end
 
@@ -30,6 +30,7 @@ get '/' do
 end
 
 get '/login/form' do
+@agent = Mechanize.new
   erb :login_form
 end
 
