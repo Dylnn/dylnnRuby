@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="javascripts/jquery-1.5.2.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $.post("greeting", { salutation: "hehe", name: "Friend" },
+          function(result) { $("#greeting").html(result);
+        });
+        $('#greeting').slideUp(300).delay(1500).fadeIn(400);
+        $.post("greeting", { salutation: "memeda", name: "memeda" },
+          function(result) { $("#heheda").html(result);
+        });
+        
+        $('#greeting').slideUp(300).delay(1500).fadeIn(400);
+        $.post("greeting", { salutation: "memeda", name: "memeda" },
+          function(result) { $("#heheda").html(result);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Sinatra Ajax Demo using jQuery</h1>
+    <div id="greeting">
+      <p>Hello, World</p>
+    </div>
+    <div id="heheda">
+      <p>Hello, World</p>
+    </div>
+  </body>
+</html>
