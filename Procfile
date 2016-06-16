@@ -1,1 +1,1 @@
-web: bundle exec rails server -p $PORT
+web: bundle exec ruby baidu_scholar_download.rb -p $PORT
